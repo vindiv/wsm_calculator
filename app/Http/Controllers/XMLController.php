@@ -43,9 +43,11 @@ class XMLController extends Controller
 
             $nome = ['nome' => trim((string)$xml->player->name), 'cognome' => trim((string)$xml->player->surname)];
 
-            $ruoli = [
+            $ruoli = [                
+                'cc' => ($skills["velocita"] + $skills["resistenza"] + $skills["contrasto"] + $skills["posizione"] + $skills["tattica"] + $skills["gioco_di_squadra"] + $skills["tiro"] + $skills["passaggio"] + $skills["tecnica"]) / 9,
                 'tc' => ($skills["tiro"] + $skills["passaggio"] + $skills["tecnica"] + $skills["creativita"] + $skills["dribbling"]) / 5,
-                'cc' => ($skills["velocita"] + $skills["resistenza"] + $skills["contrasto"] + $skills["posizione"] + $skills["tattica"] + $skills["gioco_di_squadra"] + $skills["tiro"] + $skills["passaggio"] + $skills["tecnica"]) / 9
+                'al' => ($skills["velocita"] + $skills["passaggio"] + $skills["creativita"] + $skills["dribbling"]) / 4,
+                'ac' => ($skills["tiro"] + $skills["velocita"] + $skills["tecnica"] + $skills["creativita"] + $skills["dribbling"] + $skills["colpo_di_testa"] + $skills["acrobazia"] + $skills["posizione"]) / 8
             ];
 
             $ruoli_specifici = [];
