@@ -42,9 +42,39 @@ class XMLController extends Controller
             ];
 
             $nome = ['nome' => trim((string)$xml->player->name), 'cognome' => trim((string)$xml->player->surname)];
+       /*     Parate
+            Piazzamento
+            Riflessi
+            Uscite Alte
+            Uscite Basse
+
+            kill Giocatori ---->Skill Portiere
+Tiro ---->Parate
+Velocità ---->Riflessi
+Passaggio ---->Rinvio
+Tecnica ---->Coi piedi
+Creatività ---->Calcio d'angolo
+Contrasto ---->Uscite basse
+Resistenza ---->Forza
+Colpo di testa ---->Uscite alte
+Tattica ---->Comandare difesa
+Gioco di squadra ---->Freddezza
+Posizione ---->Piazzamento
+Marcatura ---->In mischia
+Acrobazia ---->Colpo di reni
+Dribbling ---->Elevazione
+Continuità ---->Continuità
+Determinazione---->Determinazione
+Carisma ---->Carisma
+Impegno ---->Impegno
+Corretezza ---->Corretezza
+Duttilità ---->Duttilità
+Punizione ---->Calci piazzati
+Rigori ---->Rigori
+*/
 
             $ruoli = [    
-                'p' => '',
+                'p' => ($skills['tiro'] + $skills['posizione'] + $skills['velocita'] + $skills['contrasto'] + $skills['colpo_di_testa']) / 5,
                 'l' => ($skills['contrasto'] + $skills['colpo_di_testa'] + $skills['gioco_di_squadra'] + $skills['posizione'] + $skills['tattica']) / 5,
                 'dc' => ($skills['velocita'] + $skills['contrasto'] + $skills['colpo_di_testa'] + $skills['acrobazia'] + $skills['marcatura'] + $skills['posizione']) / 6,
                 'dl' => ($skills['velocita'] + $skills['contrasto'] + $skills['marcatura'] + $skills['posizione']) / 4,                            
